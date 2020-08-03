@@ -17,11 +17,11 @@ public class Replayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Timeline.GetAttack(EchoTimer.Instance.PreviousTime, EchoTimer.Instance.CurrentTime).Execute();
+        Timeline.GetAttack(RewindableTimer.PrevTime, RewindableTimer.CurrTime).Execute();
     }
 
     private void FixedUpdate()
     {
-        Timeline.GetPosition(EchoTimer.Instance.CurrentStep).Apply(Position);
+        Timeline.GetPosition(RewindableTimer.CurrStep).Apply(Position);
     }
 }

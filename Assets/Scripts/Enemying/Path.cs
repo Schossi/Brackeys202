@@ -7,16 +7,23 @@ public class Path : MonoBehaviour
 {
     public Transform[] Points;
 
+    public Transform StartPosition => Points[0];
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    public void Apply(Transform transform, float time, float speed)
+    {
+
     }
 
     private void OnDrawGizmos()
@@ -27,7 +34,8 @@ public class Path : MonoBehaviour
             var current = Points[i];
 
             Gizmos.color = Color.red;
-            Gizmos.DrawLine(new Vector3(previous.position.x, 1f, previous.position.z), new Vector3(current.position.x, 1f, current.position.z));
+            Gizmos.DrawLine(previous.position.GetOutaXZ(1f), current.position.GetOutaXZ(1f));
+            Debug.Log($"{previous.position.GetOutaXZ(1f)} > {current.position.GetOutaXZ(1f)}");
         }
     }
 }

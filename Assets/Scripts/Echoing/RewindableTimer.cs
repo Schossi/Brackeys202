@@ -3,11 +3,19 @@ using System.Collections;
 using UnityEngine.Playables;
 using System;
 
-public class EchoTimer : MonoBehaviour
+public class RewindableTimer : MonoBehaviour
 {
-    public static EchoTimer Instance { get; private set; }
+    public static RewindableTimer Instance { get; private set; }
     public int Modifier { get; private set; }
 
+    public static bool IsRewinding => Instance._isRewinding;
+    public static bool IsPlaying => Instance._isPlaying;
+    public static float Delta => Instance.DeltaTime;
+    public static float PrevTime => Instance.PreviousTime;
+    public static float CurrTime => Instance.CurrentTime;
+    public static int CurrStep => Instance.CurrentStep;
+
+    public float DeltaTime { get; private set; }
     public float PreviousTime { get; private set; }
     public float CurrentTime { get; private set; }
     public int CurrentStep { get; private set; }
@@ -32,7 +40,8 @@ public class EchoTimer : MonoBehaviour
             return;
 
         PreviousTime = CurrentTime;
-        CurrentTime += Time.deltaTime * Modifier;
+        DeltaTime = Time.deltaTime * Modifier;
+        CurrentTime += DeltaTime;
     }
 
     private void FixedUpdate()

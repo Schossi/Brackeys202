@@ -38,6 +38,6 @@ public class Recorder : MonoBehaviour
 
     private void Attacker_Attacked(object sender, AttackedArgs e)
     {
-        Timeline.AddAttack(EchoTimer.Instance.CurrentTime, e.Type, e.Args);
+        Timeline.AddAttack(RewindableTimer.CurrTime, e.Type, e.Args);
     }
 }

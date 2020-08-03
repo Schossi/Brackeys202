@@ -14,7 +14,7 @@ public class Timeline
     {
         _positions.Add(new TimelinePosition()
         {
-            Position = new Vector2(position.x, position.z),
+            Position = position.GetIntoXZ(),
             Rotation = rotation.eulerAngles.y
         });
     }

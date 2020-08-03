@@ -12,7 +12,7 @@ public class DebugRewinder : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EchoTimer.Instance.Rewinded += Instance_Rewinded;
+        RewindableTimer.Instance.Rewinded += Instance_Rewinded;
         startRound();
     }
 
@@ -27,7 +27,7 @@ public class DebugRewinder : MonoBehaviour
             Destroy(_currentUnit.gameObject);
             _currentUnit = null;
 
-            EchoTimer.Instance.Rewind(3);
+            RewindableTimer.Instance.Rewind(3);
         }
     }
 
@@ -36,6 +36,6 @@ public class DebugRewinder : MonoBehaviour
     private void startRound()
     {
         _currentUnit = Instantiate(UnitPrefab);
-        EchoTimer.Instance.Play();
+        RewindableTimer.Instance.Play();
     }
 }
