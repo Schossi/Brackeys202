@@ -7,6 +7,6 @@ using UnityEngine;
 public class SpawnItem
 {
     public float Time;
-    public int Quantity;
+    public Formation Formation;
     public Follower Prefab;
 }

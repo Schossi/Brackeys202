@@ -6,12 +6,16 @@ using UnityEngine;
 
 public class Follower : MonoBehaviour
 {
+    public Transform Pivot;
     public Path Path;
+    public Vector2 Offset;
     public float Speed;
 
     public event EventHandler Finished;
 
     private int _targetIndex;
+
+    private Vector3 _pathPosition;
 
     private void Awake()
     {
@@ -28,6 +32,7 @@ public class Follower : MonoBehaviour
     void Update()
     {
         move(Math.Abs(RewindableTimer.Delta * Speed));
+        Pivot.localPosition = transform.localToWorldMatrix.MultiplyVector(Offset.GetOutaXZ());
     }
 
     private void OnDestroy()

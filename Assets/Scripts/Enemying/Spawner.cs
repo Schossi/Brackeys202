@@ -25,8 +25,30 @@ public class Spawner : MonoBehaviour
         {
             if (item.Time.IsBetween(RewindableTimer.PrevTime, RewindableTimer.CurrTime))
             {
-                Instantiate(item.Prefab, Path.StartPosition.position, Quaternion.identity).Path = Path;
+                spawn(item);
             }
         }
+    }
+
+    private void spawn(SpawnItem item)
+    {
+        if (item.Formation == null)
+        {
+            spawn(item.Prefab, Vector2.zero);
+        }
+        else
+        {
+            foreach (var position in item.Formation.Positions)
+            {
+                spawn(item.Prefab, position);
+            }
+        }
+    }
+
+    private void spawn(Follower prefab, Vector2 position)
+    {
+        var follower = Instantiate(prefab, Path.StartPosition.position, Quaternion.identity);
+        follower.Path = Path;
+        follower.Offset = position;
     }
 }
