@@ -13,6 +13,10 @@ TagManager:
   - UI
   - 
   - 
+  - Enemy
+  - Unit
+  - Projectile
+  - Ground
   - 
   - 
   - 
@@ -21,12 +25,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Basecamp
+  - Mana
   - 
   - 
   - 

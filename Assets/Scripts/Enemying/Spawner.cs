@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -7,7 +8,12 @@ public class Spawner : MonoBehaviour
     public Path Path;
     public SpawnItem[] Items;
 
-    public bool IsFinished { get; private set; }
+    public bool IsFinished => RewindableTimer.CurrTime > Items.Last().Time;
+
+    private void Awake()
+    {
+        Spawners.Instance.Register(this);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +34,11 @@ public class Spawner : MonoBehaviour
                 spawn(item);
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        Spawners.Instance.Deregister(this);
     }
 
     private void spawn(SpawnItem item)
