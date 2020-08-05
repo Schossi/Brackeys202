@@ -17,6 +17,9 @@ public class Replayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!RewindableTimer.IsPlaying)
+            return;
+
         Timeline.GetAttack(RewindableTimer.PrevTime, RewindableTimer.CurrTime).Execute();
     }
 

@@ -8,6 +8,8 @@ public class Mover : MonoBehaviour
     public Rigidbody Rigidbody;
     public float Speed;
 
+    public bool IsMoving => GameManager.Instance == null || GameManager.Instance.State == GameState.Play;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,11 +19,20 @@ public class Mover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!IsMoving)
+            return;
+
         transform.LookAt(Cameraer.Instance.GetMousePosition());
     }
 
     private void FixedUpdate()
     {
+        if (!IsMoving)
+        {
+            Rigidbody.velocity = Vector3.zero;
+            return;
+        }
+
         float horizontal = Input.GetAxis(InputAxis.HORIZONTAL);
         float vertical = Input.GetAxis(InputAxis.VERTICAL);
 

@@ -78,6 +78,8 @@ public class RewindableTimer : MonoBehaviour
         _isPlaying = false;
         _isRewinding = false;
 
+        DeltaTime = 0f;
+
         Stopped?.Invoke(this, EventArgs.Empty);
     }
 

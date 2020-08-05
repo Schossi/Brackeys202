@@ -32,7 +32,7 @@ public class Follower : MonoBehaviour
     void Update()
     {
         move(Math.Abs(RewindableTimer.Delta * Speed));
-        Pivot.localPosition = transform.localToWorldMatrix.MultiplyVector(Offset.GetOutaXZ());
+        Pivot.localPosition = transform.worldToLocalMatrix.MultiplyVector(Offset.GetOutaXZ());
     }
 
     private void OnDestroy()

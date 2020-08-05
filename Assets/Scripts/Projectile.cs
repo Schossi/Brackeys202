@@ -52,6 +52,9 @@ public class Projectile : MonoBehaviour
         if (other?.gameObject?.layer == Layers.Ground)
             die();
 
+        if (Piercing < 0)
+            return;
+
         var hurter = other?.attachedRigidbody?.GetComponent<IGetHurt>();
         if (hurter != null)
         {

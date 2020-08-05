@@ -16,7 +16,7 @@ public class DebugMana : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             var position = Cameraer.Instance.GetMousePosition() + new Vector3(0f, 1f, 0f);
-            var amount = Random.Range(10f, 100f);
+            var amount = Random.Range(10, 100);
 
             Basecamp.SpawnMana(position, amount);
         }

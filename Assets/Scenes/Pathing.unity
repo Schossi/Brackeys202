@@ -1056,13 +1056,7 @@ MonoBehaviour:
   Path: {fileID: 988807053}
   Items:
   - Time: 0
-    Quantity: 5
-    Prefab: {fileID: -8070296391563679290, guid: 7b924bc2808eec042a47a3c8e1459770, type: 3}
-  - Time: 1
-    Quantity: 10
-    Prefab: {fileID: -8070296391563679290, guid: 7b924bc2808eec042a47a3c8e1459770, type: 3}
-  - Time: 1.5
-    Quantity: 10
+    Formation: {fileID: 11400000, guid: 7bb772afaa0420c4cbb731c622d58954, type: 2}
     Prefab: {fileID: -8070296391563679290, guid: 7b924bc2808eec042a47a3c8e1459770, type: 3}
 --- !u!1 &1047126013
 GameObject:
@@ -1684,7 +1678,7 @@ Transform:
   m_GameObject: {fileID: 1958207064}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children:
   - {fileID: 457061103}
   - {fileID: 3110107162594240950}

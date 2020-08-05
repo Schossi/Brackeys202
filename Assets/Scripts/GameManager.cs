@@ -3,15 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
-{    
-    private void OnEnable()
+{
+    public static GameManager Instance { get; private set; }
+
+    public GameState State { get; private set; } = GameState.Buy;
+
+    private void Awake()
     {
+        Instance = this;
+    }
+
+    private void Start()
+    {
+        Followers.Instance.Finished -= follower_Finished;
+        RewindableTimer.Instance.Rewinded -= timer_Rewinded;
+        Enemies.Instance.Destroyed -= enemy_Destroyed;
         Followers.Instance.Finished += follower_Finished;
         RewindableTimer.Instance.Rewinded += timer_Rewinded;
         Enemies.Instance.Destroyed += enemy_Destroyed;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         Followers.Instance.Finished -= follower_Finished;
         RewindableTimer.Instance.Rewinded -= timer_Rewinded;
@@ -20,48 +32,88 @@ public class GameManager : MonoBehaviour
 
     private void timer_Rewinded(object sender, System.EventArgs e)
     {
-        showBuy();
+        setState(GameState.Buy);
     }
 
     private void follower_Finished(object sender, System.EventArgs e)
     {
-        RewindableTimer.Instance.Stop();
-        showRewind();
+        if (Basecamp.Instance.IsFull)
+            setState(GameState.Lost);
+        else
+            setState(GameState.End);
     }
 
     private void enemy_Destroyed(object sender, System.EventArgs e)
     {
         if (Enemies.Instance.IsEmpty && Spawners.Instance.IsFinished)
-            showWin();
+        {
+            setState(GameState.Won);
+        }
     }
 
     public void StartRound()
     {
-        RewindableTimer.Instance.Play();
+        setState(GameState.Play);
     }
 
     public void Rewind()
     {
-        RewindableTimer.Instance.Rewind(3);
+        setState(GameState.Rewind);
     }
 
-    private void showRewind()
+    private void setState(GameState state)
     {
+        State = state;
+        switch (state)
+        {
+            case GameState.Buy:
+                BuyingUI.Instance.Show();
+                FieldCursor.Instance.DeactivateCursor();
 
-    }
+                RewindableTimer.Instance.Stop();
 
-    private void showBuy()
-    {
+                Enemies.Instance.DestroyEnemies();
+                break;
+            case GameState.Play:
+                BuyingUI.Instance.Hide();
+                FieldCursor.Instance.ActivateCursor();
 
-    }
+                RewindableTimer.Instance.Play();
+                Basecamp.Instance.CurrentRecorder.StartRecording();
+                break;
+            case GameState.End:
+                BuyingUI.Instance.Show();
+                FieldCursor.Instance.DeactivateCursor();
 
-    private void showWin()
-    {
+                RewindableTimer.Instance.Stop();
+                Basecamp.Instance.CurrentRecorder.StopRecording();
+                break;
+            case GameState.Rewind:
+                BuyingUI.Instance.Hide();
+                FieldCursor.Instance.DeactivateCursor();
 
-    }
+                Basecamp.Instance.ConvertRecorder();
 
-    private void showLose()
-    {
+                RewindableTimer.Instance.Rewind(25);
+                break;
+            case GameState.Won:
+                BuyingUI.Instance.Hide();
+                FieldCursor.Instance.DeactivateCursor();
 
+                RewindableTimer.Instance.Stop();
+
+                MenuManager.Instance.ShowWon();
+                break;
+            case GameState.Lost:
+                BuyingUI.Instance.Hide();
+                FieldCursor.Instance.DeactivateCursor();
+
+                RewindableTimer.Instance.Stop();
+
+                MenuManager.Instance.ShowLost();
+                break;
+            default:
+                break;
+        }
     }
 }

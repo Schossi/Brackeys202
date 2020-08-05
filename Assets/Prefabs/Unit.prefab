@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73180cc7283ba3e4a985177b93bf605a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ReplayPrefab: {fileID: 3844479702380801350, guid: 1dcaf0fe92e82d745aaf002cd1c61104, type: 3}
   Position: {fileID: 3208149445610925924}
   Attacker: {fileID: 3208149445763873397}
 --- !u!1 &3208149445763873395

@@ -6,7 +6,7 @@ using UnityEngine;
 public class Mana : MonoBehaviour
 {
     public Transform Target;
-    public float Value;
+    public int Value;
 
     private float _lifetime;
     private float _speed;

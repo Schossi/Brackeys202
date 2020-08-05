@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Recorder : MonoBehaviour
 {
+    public Replayer ReplayPrefab;
     public Transform Position;
     public Attacker Attacker;
 
@@ -14,7 +15,6 @@ public class Recorder : MonoBehaviour
 
     private void Start()
     {
-        StartRecording();//debug
     }
 
     private void FixedUpdate()
@@ -34,6 +34,16 @@ public class Recorder : MonoBehaviour
     {
         _isRecording = false;
         Attacker.Attacked -= Attacker_Attacked;
+    }
+
+    public Replayer Convert()
+    {
+        var replayer = Instantiate(ReplayPrefab, transform.position, transform.rotation, transform.parent);
+        replayer.Timeline = Timeline;
+
+        Destroy(gameObject);
+
+        return replayer;
     }
 
     private void Attacker_Attacked(object sender, AttackedArgs e)

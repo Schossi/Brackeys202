@@ -35,7 +35,6 @@ public class Path : MonoBehaviour
 
             Gizmos.color = Color.red;
             Gizmos.DrawLine(previous.position.GetOutaXZ(1f), current.position.GetOutaXZ(1f));
-            Debug.Log($"{previous.position.GetOutaXZ(1f)} > {current.position.GetOutaXZ(1f)}");
         }
     }
 }

@@ -154,6 +154,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ManaPrefab: {fileID: 2945930638323628628, guid: 0cbcb00efb61e97409356ccbae1998d9, type: 3}
+  ManaTarget: {fileID: 1369482884}
+  Slots: []
+  RewindCost: 0
   Mana: 0
 --- !u!54 &1284675589
 Rigidbody:
