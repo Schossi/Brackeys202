@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59d17c75bc39fb748ab0dfacb9e8c870, type: 3}
-  m_Name: Fire
+  m_Script: {fileID: 11500000, guid: 9e14793b987d7ff42974d94445093584, type: 3}
+  m_Name: Retry
   m_EditorClassIdentifier: 
-  Type: 3
-  Regular: {fileID: 4881887822351603790, guid: 7dfe4b1e9663b8441af460a109c14628, type: 3}
-  Perfect: {fileID: 4881887822351603790, guid: 9c53e2c0a37298b4dbbd5032927b11f3, type: 3}
+  Icon: {fileID: 0}
+  Name: Retry
+  Group: C

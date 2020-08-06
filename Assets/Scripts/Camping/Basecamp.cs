@@ -86,6 +86,11 @@ public class Basecamp : MonoBehaviour
             Mana += mana.Value;
             Destroy(mana.gameObject);
         }
+
+        if (other.gameObject.layer == Layers.Enemy)
+        {
+            GameManager.Instance.EnemyFinished();
+        }
     }
 
     public static void SpawnMana(Vector3 position, int amount)

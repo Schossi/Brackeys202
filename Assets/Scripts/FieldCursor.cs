@@ -20,7 +20,16 @@ public class FieldCursor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Cameraer.Instance.GetMousePosition();
+        var stick = InputAxis.GetRightStick();
+
+        if (stick.magnitude > 0.1f)
+        {
+            transform.position = Mover.MoverPosition + stick.normalized.GetOutaXZ() * 5f;
+        }
+        else
+        {
+            transform.position = Cameraer.Instance.GetMousePosition();
+        }
     }
 
     public void ActivateCursor()

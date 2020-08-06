@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59d17c75bc39fb748ab0dfacb9e8c870, type: 3}
   m_Name: Air
   m_EditorClassIdentifier: 
-  Type: 0
-  Regular: {fileID: 0}
-  Perfect: {fileID: 0}
+  Type: 5
+  Regular: {fileID: 4881887822351603790, guid: 1d88d894fb25c4a4b8e8d9b3d1c7ac4b, type: 3}
+  Perfect: {fileID: 4881887822351603790, guid: bc0658cc34778234e9945adf6a78a526, type: 3}

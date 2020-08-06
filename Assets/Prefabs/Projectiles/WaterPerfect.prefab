@@ -161,5 +161,5 @@ MonoBehaviour:
   Piercing: 0
   Damage: 2
   Speed: 35
-  Radius: 2
+  Radius: 3
   ExplosionVisualPrefab: {fileID: 362236701955733818, guid: 74eee31c5795adf4ca518ffd5baf8a6c, type: 3}

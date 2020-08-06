@@ -49,10 +49,7 @@ public class Mover : MonoBehaviour
             return;
         }
 
-        float horizontal = Input.GetAxis(InputAxis.HORIZONTAL);
-        float vertical = Input.GetAxis(InputAxis.VERTICAL);
-
-        Vector2 movement = new Vector2(horizontal, vertical);
+        Vector2 movement = InputAxis.GetLeftStick();
 
         if (movement.magnitude > 1.0f)
             movement.Normalize();

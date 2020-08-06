@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EarthAttack: {fileID: 11400000, guid: d79b9c5cf5fdacb49b82886181156219, type: 2}
   WaterAttack: {fileID: 11400000, guid: c18985b3bf9fec64e9190782cbcb33c0, type: 2}
-  FireAttack: {fileID: 0}
-  AirAttack: {fileID: 0}
+  FireAttack: {fileID: 11400000, guid: 5c102698470ea65409d58e8e84d81dfc, type: 2}
+  AirAttack: {fileID: 11400000, guid: 1cf674ce595dc574783e08ea82942ec9, type: 2}

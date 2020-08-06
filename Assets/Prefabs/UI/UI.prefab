@@ -821,10 +821,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8631097949801820366}
     m_Modifications:
-    - target: {fileID: 1272109983317386737, guid: 6fdc1d65fd5c3e54a8aeb0f255c2a844, type: 3}
-      propertyPath: Buyables.Array.size
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 5561556823550711347, guid: 6fdc1d65fd5c3e54a8aeb0f255c2a844, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

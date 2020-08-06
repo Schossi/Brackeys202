@@ -96,6 +96,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5e3a7087490747542965e7174f4898a7, type: 2}
   - {fileID: 11400000, guid: 5ea1daa66ced6e746a0499cd3a7c2cf7, type: 2}
   - {fileID: 11400000, guid: 5c217663bcac3ec4eb31d20f2797e769, type: 2}
-  - {fileID: 11400000, guid: a9d45e23144b01842b99c4b6b3ce22d3, type: 2}
+  - {fileID: 11400000, guid: 7f55f0edbf542dd4da81efdf551af191, type: 2}
+  - {fileID: 11400000, guid: 69670b4f1ef893c4ebb1ea7a03ece9a3, type: 2}
   GapPrefab: {fileID: 5483628789903945449, guid: de0e1fe20bfd6574ea97ce3f8cf6cca6, type: 3}
   BuyablePrefab: {fileID: 7366709737553227251, guid: fac46da199db10d4c89f69ebcd1c8877, type: 3}

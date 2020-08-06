@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    public int Stage;
     public GameState State { get; private set; }
 
     private bool _isOver = false;
@@ -44,6 +46,7 @@ public class GameManager : MonoBehaviour
             setState(GameState.Buy);
     }
 
+    public void EnemyFinished() => follower_Finished(null, EventArgs.Empty);
     private void follower_Finished(object sender, System.EventArgs e)
     {
         if (_isOver)
@@ -75,6 +78,16 @@ public class GameManager : MonoBehaviour
         setState(GameState.Rewind);
     }
 
+    public void Retry()
+    {
+        SceneManager.LoadScene("Gameplay");//  "Stage" + Stage);
+    }
+
+    public void Exit()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
     private void setState(GameState state)
     {
         State = state;
@@ -92,7 +105,7 @@ public class GameManager : MonoBehaviour
             Basecamp.Instance.CurrentRecorder?.Attacker.DeactivateAttacker();
         }
 
-        if (state == GameState.Buy || state == GameState.End)
+        if (state == GameState.Buy || state == GameState.End || state == GameState.Won || state == GameState.Lost)
         {
             BuyingUI.Instance.Show();
             UIBack.Instance.Show();
