@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf5597e1a3d98246a11461df3747dd9, type: 3}
+  m_Name: Earth
+  m_EditorClassIdentifier: 
+  Type: 1
+  Regular: {fileID: 1603985822408953604, guid: 59d2aa407c3660349b60506d5d921cad, type: 3}
+  Perfect: {fileID: 1603985822408953604, guid: 1ffaa48a16488104d93ac3bba80c76fa, type: 3}

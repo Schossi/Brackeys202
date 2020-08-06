@@ -34,7 +34,7 @@ public class Projectile : MonoBehaviour
             fall();
     }
 
-    private void fall()
+    protected void fall()
     {
         _isFalling = true;
         Rigidbody.useGravity = true;
@@ -42,7 +42,7 @@ public class Projectile : MonoBehaviour
         Rigidbody.velocity = transform.forward * Speed - transform.up * Speed / 5;
     }
 
-    private void die()
+    protected void die()
     {
         Destroy(gameObject);
     }
@@ -58,10 +58,15 @@ public class Projectile : MonoBehaviour
         var hurter = other?.attachedRigidbody?.GetComponent<IGetHurt>();
         if (hurter != null)
         {
-            hurter.Hurt(Damage);
-            Piercing--;
-            if (Piercing < 0)
-                die();
+            hurt(hurter);
         }
+    }
+
+    protected virtual void hurt(IGetHurt hurter)
+    {
+        hurter.Hurt(Damage);
+        Piercing--;
+        if (Piercing < 0)
+            die();
     }
 }

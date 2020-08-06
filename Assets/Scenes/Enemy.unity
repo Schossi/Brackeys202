@@ -532,6 +532,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2038512727958653685, guid: d167fae699290e4478efb4c21099afeb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2224825546406283450, guid: d167fae699290e4478efb4c21099afeb, type: 3}
       propertyPath: m_Name
       value: UI
@@ -922,6 +926,10 @@ PrefabInstance:
       propertyPath: Tolerance
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 3208149445763873397, guid: fcc665fa58b60a8499cd5f6e78b14673, type: 3}
+      propertyPath: Config
+      value: 
+      objectReference: {fileID: 11400000, guid: 7180eb4bcbb91804d8c744f839f20730, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcc665fa58b60a8499cd5f6e78b14673, type: 3}
 --- !u!1001 &5315253127592888312

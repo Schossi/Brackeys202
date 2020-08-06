@@ -7,7 +7,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "AttacksRepo")]
 public class Attacks : ScriptableObject
 {
-    public Attack ArrowAttack;
+    public Attack EarthAttack;
+    public Attack WaterAttack;
+    public Attack FireAttack;
+    public Attack AirAttack;
 
     private static Attacks _instance;
     private static Attacks Instance
@@ -26,8 +29,16 @@ public class Attacks : ScriptableObject
         {
             case AttackType.None:
                 return null;
+            case AttackType.Air:
+                return Instance.AirAttack;
+            case AttackType.Earth:
+                return Instance.EarthAttack;
+            case AttackType.Fire:
+                return Instance.FireAttack;
+            case AttackType.Water:
+                return Instance.WaterAttack;
             default:
-                return Instance.ArrowAttack;
+                return Instance.EarthAttack;
         }
     }
 

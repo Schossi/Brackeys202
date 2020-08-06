@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab4089231a7ec6840ab7b952a106c534, type: 3}
   m_Name: Attacks
   m_EditorClassIdentifier: 
-  ArrowAttack: {fileID: 11400000, guid: d79b9c5cf5fdacb49b82886181156219, type: 2}
+  EarthAttack: {fileID: 11400000, guid: d79b9c5cf5fdacb49b82886181156219, type: 2}
+  WaterAttack: {fileID: 11400000, guid: c18985b3bf9fec64e9190782cbcb33c0, type: 2}
+  FireAttack: {fileID: 0}
+  AirAttack: {fileID: 0}

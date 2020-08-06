@@ -39,6 +39,11 @@ public class Cameraer : MonoBehaviour
         return Vector3.zero;
     }
 
+    public Vector3 GetTargetPosition()
+    {
+        return FieldCursor.Instance.transform.position;
+    }
+
     public Vector3 GetScreenPosition(Vector3 worldPosition)
     {
        return Main.WorldToScreenPoint(worldPosition);

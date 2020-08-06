@@ -5,6 +5,8 @@ using UnityEngine.UIElements;
 
 public class Mover : MonoBehaviour
 {
+    public static Vector3 MoverPosition;
+
     public Animator Animator;
     public Rigidbody Rigidbody;
     public float Speed;
@@ -33,6 +35,11 @@ public class Mover : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        MoverPosition = transform.position;
+    }
+
     private void FixedUpdate()
     {
         if (!IsMoving)
@@ -57,9 +64,11 @@ public class Mover : MonoBehaviour
 
         Rigidbody.velocity = new Vector3(movement.x, 0f, movement.y);
 
+        Vector3 target;
         if (IsStopped || movement.magnitude < 0.2f)
-            transform.LookAt(Cameraer.Instance.GetMousePosition());
+            target = Cameraer.Instance.GetTargetPosition();
         else
-            transform.LookAt(transform.position + movement.GetOutaXZ());
+            target = transform.position + movement.GetOutaXZ();
+        transform.LookAt(new Vector3(target.x, transform.position.y, target.z));
     }
 }
