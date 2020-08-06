@@ -38,4 +38,9 @@ public class Cameraer : MonoBehaviour
         Debug.Log("ExtensionMethods_Camera.MouseOnPlane: plane is behind camera or ray is parallel to plane! " + hitdist);       // both are parallel or plane is behind camera so write a log and return zero vector
         return Vector3.zero;
     }
+
+    public Vector3 GetScreenPosition(Vector3 worldPosition)
+    {
+       return Main.WorldToScreenPoint(worldPosition);
+    }
 }

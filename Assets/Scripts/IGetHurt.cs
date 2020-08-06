@@ -4,5 +4,8 @@ using UnityEngine;
 
 public interface IGetHurt
 {
-    void Hurt(float amount);
+    int HealthMax { get; }
+    int HealthCurrent { get; }
+
+    void Hurt(int amount);
 }

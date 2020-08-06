@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
 
-public class EnemyBase : MonoBehaviour,IGetHurt
+public class EnemyBase : MonoBehaviour, IGetHurt
 {
     public Animator Animator;
-    public float Health;
+    public int Health;
+
+    public Vector3 WorldPosition => transform ? transform.position : Vector3.zero;
+    public int HealthMax => Health;
+    public int HealthCurrent => _currentHealth;
+
+    private int _currentHealth;
 
     private void Awake()
     {
@@ -16,27 +22,32 @@ public class EnemyBase : MonoBehaviour,IGetHurt
     // Start is called before the first frame update
     void Start()
     {
-        
+        _currentHealth = Health;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnDestroy()
     {
-        Enemies.Instance.Deregister(this);
+        Enemies.Instance?.Deregister(this);
     }
 
-    public void Hurt(float amount)
+    public void Hurt(int amount)
     {
-        Health -= amount;
-        if (Health <= 0)
+        _currentHealth -= amount;
+        if (_currentHealth <= 0)
+        {
             die();
+        }
         else
-            Animator.SetTrigger("Hit");
+        {
+            Animator.SetTrigger("hit");
+            HealthbarsUI.Instance.AddBar(this);
+        }
     }
 
     protected virtual void die()
@@ -46,6 +57,6 @@ public class EnemyBase : MonoBehaviour,IGetHurt
 
     private void OnTriggerEnter(Collider other)
     {
-        
+
     }
 }

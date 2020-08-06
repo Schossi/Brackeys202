@@ -5,6 +5,7 @@ using UnityEngine;
 public class UnitSlot : MonoBehaviour
 {
     public GameObject Unit;
+    public GameObject Eye;
 
     public bool HasUnit => Unit;
 
@@ -17,6 +18,6 @@ public class UnitSlot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Eye.SetActive(HasUnit);
     }
 }

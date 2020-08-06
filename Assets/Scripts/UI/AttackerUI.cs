@@ -70,6 +70,8 @@ public class AttackerUI : MonoBehaviour
         NormalArea.SetLeft(minFactor * absolute);
         PerfectArea.SetLeft(perfectFactorLeft * absolute);
         PerfectArea.SetRight(perfectFactorRight * absolute);
+
+        Current.gameObject.SetActive(currentFactor > 0f);
     }
 
     public void Show()

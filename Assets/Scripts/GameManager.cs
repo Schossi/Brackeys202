@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -7,6 +9,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     public GameState State { get; private set; }
+
+    private bool _isOver = false;
 
     private void Awake()
     {
@@ -34,12 +38,17 @@ public class GameManager : MonoBehaviour
 
     private void timer_Rewinded(object sender, System.EventArgs e)
     {
-        setState(GameState.Buy);
+        if (_isOver)
+            RewindableTimer.Instance.Play();
+        else
+            setState(GameState.Buy);
     }
 
     private void follower_Finished(object sender, System.EventArgs e)
     {
-        if (Basecamp.Instance.IsFull)
+        if (_isOver)
+            RewindableTimer.Instance.Rewind(25);
+        else if (Basecamp.Instance.IsFull)
             setState(GameState.Lost);
         else
             setState(GameState.End);
@@ -49,7 +58,10 @@ public class GameManager : MonoBehaviour
     {
         if (Enemies.Instance.IsEmpty && Spawners.Instance.IsFinished)
         {
-            setState(GameState.Won);
+            if (_isOver)
+                RewindableTimer.Instance.Rewind(25);
+            else
+                setState(GameState.Won);
         }
     }
 
@@ -74,6 +86,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            HealthbarsUI.Instance.Clear();
             FieldCursor.Instance.DeactivateCursor();
             AttackerUI.Instance.Hide();
             Basecamp.Instance.CurrentRecorder?.Attacker.DeactivateAttacker();
@@ -82,10 +95,12 @@ public class GameManager : MonoBehaviour
         if (state == GameState.Buy || state == GameState.End)
         {
             BuyingUI.Instance.Show();
+            UIBack.Instance.Show();
         }
         else
         {
             BuyingUI.Instance.Hide();
+            UIBack.Instance.Hide();
         }
 
         switch (state)
@@ -107,11 +122,15 @@ public class GameManager : MonoBehaviour
                 RewindableTimer.Instance.Rewind(25);
                 break;
             case GameState.Won:
-                RewindableTimer.Instance.Stop();
+                _isOver = true;
+                Basecamp.Instance.ConvertRecorder();
+                RewindableTimer.Instance.Rewind(25);
                 MenuManager.Instance.ShowWon();
                 break;
             case GameState.Lost:
-                RewindableTimer.Instance.Stop();
+                _isOver = true;
+                Basecamp.Instance.ConvertRecorder();
+                RewindableTimer.Instance.Rewind(25);
                 MenuManager.Instance.ShowLost();
                 break;
             default:

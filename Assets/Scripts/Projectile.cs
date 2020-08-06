@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour
     public Rigidbody Rigidbody;
     public float Range;
     public int Piercing;
-    public float Damage;
+    public int Damage;
     public float Speed;
 
     private Vector3 _direction;

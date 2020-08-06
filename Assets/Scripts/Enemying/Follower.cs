@@ -42,7 +42,7 @@ public class Follower : MonoBehaviour
 
     private void OnDestroy()
     {
-        Followers.Instance.Deregister(this);
+        Followers.Instance?.Deregister(this);
     }
 
     private void move(float movement)
