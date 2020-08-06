@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class BuyingUI : MonoBehaviour
@@ -10,6 +11,8 @@ public class BuyingUI : MonoBehaviour
     public Buyable[] Buyables;
     public RectTransform GapPrefab;
     public BuyableUI BuyablePrefab;
+
+    private List<BuyableUI> _uis = new List<BuyableUI>();
 
     private void Awake()
     {
@@ -29,6 +32,8 @@ public class BuyingUI : MonoBehaviour
             var buyableUI = Instantiate(BuyablePrefab, transform);
             buyableUI.Buyable = buyable;
             buyableUI.ApplyBuyable();
+
+            _uis.Add(buyableUI);
         }
     }
 
@@ -41,6 +46,9 @@ public class BuyingUI : MonoBehaviour
     public void Show()
     {
         gameObject.SetActive(true);
+
+        _uis.ForEach(u => u.Update());
+        _uis.First(u => u.Button.gameObject.activeSelf)?.Button.Select();
     }
 
     public void Hide()

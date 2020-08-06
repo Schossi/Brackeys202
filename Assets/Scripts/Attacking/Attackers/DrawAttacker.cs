@@ -8,6 +8,7 @@ using UnityEngine;
 public class DrawAttacker : Attacker
 {
     public DrawConfig Config;
+    public AudioSource DrawSound;
 
     public float DrawTime => _downTime;
     public override bool IsSlowing => _isDown;
@@ -33,6 +34,7 @@ public class DrawAttacker : Attacker
 
         if (Input.GetButtonDown(InputAxis.ATTACK))
         {
+            DrawSound.Play();
             _isDown = true;
             setAnimationDraw(true);
         }

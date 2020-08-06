@@ -46,7 +46,7 @@ public abstract class Attacker : MonoBehaviour
             IsPerfect = isPerfect
         };
 
-        Attacks.Execute(AttackType, args);
+        Attacks.Execute(AttackType, args, false);
         Attacked?.Invoke(this, new AttackedArgs(AttackType, args));
     }
 

@@ -68,6 +68,8 @@ public class Basecamp : MonoBehaviour
         CurrentRecorder = Instantiate(prefab, slot.transform.position, slot.transform.rotation);
 
         slot.Unit = CurrentRecorder.gameObject;
+
+        Summon();
     }
 
     public void ConvertRecorder()
@@ -104,4 +106,8 @@ public class Basecamp : MonoBehaviour
             amount -= 10;
         }
     }
+
+    public static void Hit() => Instance?.Animator?.SetTrigger("hit");
+    public static void Shoot() => Instance?.Animator?.SetTrigger("shoot");
+    public static void Summon() => Instance?.Animator?.SetTrigger("win");
 }

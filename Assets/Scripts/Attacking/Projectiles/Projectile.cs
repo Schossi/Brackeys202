@@ -12,6 +12,9 @@ public class Projectile : MonoBehaviour
     public int Damage;
     public float Speed;
 
+    public bool Slows;
+    public float SlowDuration;
+
     private Vector3 _direction;
     private bool _isFalling;
 

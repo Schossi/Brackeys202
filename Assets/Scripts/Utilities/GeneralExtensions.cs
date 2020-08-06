@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Security.Permissions;
 using UnityEngine;
 
 public static class GeneralExtensions
@@ -36,5 +38,13 @@ public static class GeneralExtensions
     public static void SetBottom(this RectTransform rt, float bottom)
     {
         rt.offsetMin = new Vector2(rt.offsetMin.x, bottom);
+    }
+
+    public static float TryPlaySound(this AudioSource audio, float lastPlayed)
+    {
+        if (Math.Abs(Time.time - lastPlayed) < 0.1f)
+            return lastPlayed;
+        audio.Play();
+        return Time.time;
     }
 }

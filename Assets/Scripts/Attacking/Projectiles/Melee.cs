@@ -8,6 +8,9 @@ public class Melee : MonoBehaviour
     public int Damage;
     public Collider Collider;
 
+    public bool Stuns;
+    public float StunDuration;
+
     private float lifetime;
 
     // Start is called before the first frame update
@@ -30,6 +33,15 @@ public class Melee : MonoBehaviour
         if (hurter != null)
         {
             hurt(hurter);
+        }
+
+        if (Stuns)
+        {
+            var follower = other?.attachedRigidbody?.GetComponent<Follower>();
+            if (follower)
+            {
+                follower.Stun(StunDuration);
+            }
         }
     }
 

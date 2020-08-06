@@ -6,7 +6,7 @@ public class Attack : ScriptableObject
 {
     public AttackType Type;
 
-    public virtual void Execute(AttackArgs args)
+    public virtual void Execute(AttackArgs args, bool isEcho)
     {
 
     }

@@ -13,6 +13,6 @@ public struct TimelineAttack
 
     public bool Execute()
     {
-        return Attacks.Execute(Type, Args);
+        return Attacks.Execute(Type, Args, true);
     }
 }

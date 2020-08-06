@@ -37,7 +37,7 @@ public class BuyableUI : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         ApplyBuyable();
         Button.gameObject.SetActive(Buyable.CanBuy);

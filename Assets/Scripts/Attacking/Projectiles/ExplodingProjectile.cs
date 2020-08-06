@@ -16,6 +16,15 @@ public class ExplodingProjectile : Projectile
         foreach (var hit in hits)
         {
             hit.attachedRigidbody?.GetComponent<IGetHurt>()?.Hurt(Damage);
+
+            if (Slows)
+            {
+                var follower = hit?.attachedRigidbody?.GetComponent<Follower>();
+                if (follower)
+                {
+                    follower.Slow(SlowDuration);
+                }
+            }
         }
 
         var visual = Instantiate(ExplosionVisualPrefab, transform.position, transform.rotation);

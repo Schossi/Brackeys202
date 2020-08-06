@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animator: {fileID: 8123682227318084266}
+  HitSound: {fileID: 0}
   Health: 10
 --- !u!54 &7946472954389688665
 Rigidbody:

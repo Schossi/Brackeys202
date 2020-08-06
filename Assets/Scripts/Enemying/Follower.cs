@@ -17,6 +17,8 @@ public class Follower : MonoBehaviour
     public event EventHandler Finished;
 
     private int _targetIndex;
+    private float _stunDuration;
+    private float _slowDuration;
 
     private Vector3 _pathPosition;
 
@@ -34,10 +36,44 @@ public class Follower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Animator.SetFloat("speed", RewindableTimer.IsPlaying ? 1.0f : 0.0f);
+        float speed = 1f;
 
-        move(Math.Abs(RewindableTimer.Delta * Speed));
-        Pivot.localPosition = transform.worldToLocalMatrix.MultiplyVector(Offset.GetOutaXZ() * OffsetFactor);
+        if (!RewindableTimer.IsPlaying)
+            speed = 0f;
+        else if (_stunDuration > 0f)
+            speed = 0f;
+        else if (_slowDuration > 0f)
+            speed = 0.5f;
+
+        Animator.SetFloat("speed", speed);
+
+        if (_stunDuration > 0f)
+        {
+            _stunDuration -= Time.deltaTime;
+        }
+        else
+        {
+            if (_slowDuration > 0f)
+            {
+                _slowDuration -= Time.deltaTime;
+                move(Math.Abs(RewindableTimer.Delta * Speed * 0.5f));
+            }
+            else
+            {
+                move(Math.Abs(RewindableTimer.Delta * Speed));
+            }
+
+            Pivot.localPosition = transform.worldToLocalMatrix.MultiplyVector(Offset.GetOutaXZ() * OffsetFactor);
+        }
+    }
+
+    public void Stun(float duration)
+    {
+        _stunDuration = duration;
+    }
+    public void Slow(float duration)
+    {
+        _slowDuration = duration;
     }
 
     private void OnDestroy()

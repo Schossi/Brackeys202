@@ -42,14 +42,14 @@ public class Attacks : ScriptableObject
         }
     }
 
-    public static bool Execute(AttackType type, AttackArgs args)
+    public static bool Execute(AttackType type, AttackArgs args, bool isEcho)
     {
         var attack = GetAttack(type);
 
         if (attack == null)
             return false;
 
-        attack.Execute(args);
+        attack.Execute(args, isEcho);
         return true;
     }
 }

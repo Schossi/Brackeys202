@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c4434f7030a9f040bf12e8996e93afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Animator: {fileID: 0}
+  Animator: {fileID: 1749152988443933703}
   ManaPrefab: {fileID: 2945930638323628628, guid: 0cbcb00efb61e97409356ccbae1998d9, type: 3}
   ManaTarget: {fileID: 4224581102822207687}
   Slots:
@@ -215,7 +215,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5, y: 5, z: 1}
+  m_Size: {x: 1, y: 5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2841473811603689887
 GameObject:

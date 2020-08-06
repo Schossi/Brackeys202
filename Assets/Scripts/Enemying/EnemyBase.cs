@@ -38,6 +38,7 @@ public class EnemyBase : MonoBehaviour, IGetHurt
 
     public void Hurt(int amount)
     {
+        AudioPlayer.Hit();
         _currentHealth -= amount;
         if (_currentHealth <= 0)
         {

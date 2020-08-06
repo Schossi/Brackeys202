@@ -15,5 +15,6 @@ public class BuyableUnit : Buyable
     {
         Basecamp.Instance.InstantiateUnit(Prefab, Cost);
         GameManager.Instance.StartRound();
+        AudioPlayer.Summon();
     }
 }
