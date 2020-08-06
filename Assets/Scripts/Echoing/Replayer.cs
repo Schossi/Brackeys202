@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class Replayer : MonoBehaviour
 {
-    public Transform Position;
-
+    public Animator Animator;
     public Timeline Timeline;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Animator.SetBool("draw", false);
     }
 
     // Update is called once per frame
@@ -20,11 +19,12 @@ public class Replayer : MonoBehaviour
         if (!RewindableTimer.IsPlaying)
             return;
 
-        Timeline.GetAttack(RewindableTimer.PrevTime, RewindableTimer.CurrTime).Execute();
+        if (Timeline.GetAttack(RewindableTimer.PrevTime, RewindableTimer.CurrTime).Execute())
+            Animator.SetTrigger("attack");
     }
 
     private void FixedUpdate()
     {
-        Timeline.GetPosition(RewindableTimer.CurrStep).Apply(Position);
+        Animator.SetFloat("speed", Mathf.Min(1.0f, Timeline.GetPosition(RewindableTimer.CurrStep).Apply(transform).magnitude));
     }
 }

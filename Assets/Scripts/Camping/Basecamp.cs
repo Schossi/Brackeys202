@@ -10,15 +10,36 @@ public class Basecamp : MonoBehaviour
 {
     public static Basecamp Instance { get; private set; }
 
+    public Animator Animator;
     public Mana ManaPrefab;
     public Transform ManaTarget;
     public UnitSlot[] Slots;
     public int RewindCost;
     public int Mana;
 
-    public bool HasRecorder => _currentRecorder != null;
+    public bool HasRecorder => CurrentRecorder != null;
     public bool IsFull => Slots.All(s => s.HasUnit);
-    public Recorder CurrentRecorder => _currentRecorder;
+    public Recorder CurrentRecorder
+    {
+        get
+        {
+            return _currentRecorder;
+        }
+        private set
+        {
+            if(_currentRecorder?.Attacker!=null)
+                _currentRecorder.Attacker.Attacked -= Attacker_Attacked;
+            _currentRecorder = value;
+            if (_currentRecorder?.Attacker != null)
+                _currentRecorder.Attacker.Attacked += Attacker_Attacked;
+            AttackerUI.Instance.Attacker = value?.Attacker;
+        }
+    }
+
+    private void Attacker_Attacked(object sender, AttackedArgs e)
+    {
+
+    }
 
     private Recorder _currentRecorder;
 
@@ -44,17 +65,17 @@ public class Basecamp : MonoBehaviour
         RewindCost += cost;
 
         var slot = Slots.First(s => !s.HasUnit);
-        _currentRecorder = Instantiate(prefab, slot.transform.position, slot.transform.rotation);
+        CurrentRecorder = Instantiate(prefab, slot.transform.position, slot.transform.rotation);
 
-        slot.Unit = _currentRecorder.gameObject;
+        slot.Unit = CurrentRecorder.gameObject;
     }
 
     public void ConvertRecorder()
     {
-        var slot = Slots.First(s => s.Unit == _currentRecorder.gameObject);
+        var slot = Slots.First(s => s.Unit == CurrentRecorder.gameObject);
 
-        slot.Unit = _currentRecorder.Convert().gameObject;
-        _currentRecorder = null;
+        slot.Unit = CurrentRecorder.Convert().gameObject;
+        CurrentRecorder = null;
     }
 
     private void OnTriggerEnter(Collider other)

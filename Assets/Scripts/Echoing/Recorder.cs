@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Recorder : MonoBehaviour
@@ -8,6 +9,10 @@ public class Recorder : MonoBehaviour
     public Replayer ReplayPrefab;
     public Transform Position;
     public Attacker Attacker;
+    public Mover Mover;
+
+    public Material ReplayMaterial;
+    public SkinnedMeshRenderer Renderer;
 
     public Timeline Timeline { get; private set; }
 
@@ -15,6 +20,12 @@ public class Recorder : MonoBehaviour
 
     private void Start()
     {
+    }
+
+    private void Update()
+    {
+        Mover.IsSlowed = Attacker.IsSlowing;
+        Mover.IsStopped = Attacker.IsStopping;
     }
 
     private void FixedUpdate()
@@ -38,10 +49,16 @@ public class Recorder : MonoBehaviour
 
     public Replayer Convert()
     {
-        var replayer = Instantiate(ReplayPrefab, transform.position, transform.rotation, transform.parent);
+        var replayer = gameObject.AddComponent<Replayer>();
+        replayer.Animator = Attacker.Animator;
         replayer.Timeline = Timeline;
 
-        Destroy(gameObject);
+        var mats = Renderer.materials.ToList();
+        mats[0] = ReplayMaterial;
+        Renderer.materials = mats.ToArray();
+
+        Destroy(this);
+        Destroy(Attacker.gameObject);
 
         return replayer;
     }

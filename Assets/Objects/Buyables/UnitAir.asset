@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33e1107467ac57e4686e884ac4495ad4, type: 3}
-  m_Name: Unit
+  m_Name: UnitAir
   m_EditorClassIdentifier: 
   Icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  Name: Unit
+  Name: Air
   Group: B
   UnitCost: 10
-  Prefab: {fileID: 1792072694, guid: fcc665fa58b60a8499cd5f6e78b14673, type: 3}
+  Prefab: {fileID: 1673583968622276996, guid: fc1dbca3337d11a4493552ac7e9acae3, type: 3}

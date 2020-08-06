@@ -7,9 +7,12 @@ public struct TimelinePosition
     public Vector2 Position;
     public float Rotation;
 
-    public void Apply(Transform transform)
+    public Vector2 Apply(Transform transform)
     {
-        transform.position = new Vector3(Position.x, 0f, Position.y);
+        var newPosition = new Vector3(Position.x, 0f, Position.y);
+        var delta = newPosition - transform.position;
+        transform.position = newPosition;
         transform.rotation = Quaternion.Euler(0f, Rotation, 0f);
+        return delta;
     }
 }

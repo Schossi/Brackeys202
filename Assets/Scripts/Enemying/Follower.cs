@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class Follower : MonoBehaviour
 {
+    public const float OffsetFactor = 1.8f;
+
+    public Animator Animator;
     public Transform Pivot;
     public Path Path;
     public Vector2 Offset;
@@ -31,8 +34,10 @@ public class Follower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Animator.SetFloat("speed", RewindableTimer.IsPlaying ? 1.0f : 0.0f);
+
         move(Math.Abs(RewindableTimer.Delta * Speed));
-        Pivot.localPosition = transform.worldToLocalMatrix.MultiplyVector(Offset.GetOutaXZ());
+        Pivot.localPosition = transform.worldToLocalMatrix.MultiplyVector(Offset.GetOutaXZ() * OffsetFactor);
     }
 
     private void OnDestroy()
@@ -42,6 +47,9 @@ public class Follower : MonoBehaviour
 
     private void move(float movement)
     {
+        if (Path == null)
+            return;
+
         if (_targetIndex == 0)
         {
             transform.position = Path.Points[0].position;

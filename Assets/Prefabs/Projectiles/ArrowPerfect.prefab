@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 75b90840424e0b74a8561173a9d7e72d, type: 2}
+  - {fileID: 2100000, guid: 9c5b4030bb4265449bfe300774ae3b13, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
   Range: 0.5
   Piercing: 1
   Damage: 2
-  Speed: 110
+  Speed: 60
 --- !u!54 &3219407701543704055
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -129,4 +129,4 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3

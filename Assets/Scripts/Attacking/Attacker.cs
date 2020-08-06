@@ -8,8 +8,14 @@ using UnityEngine.EventSystems;
 public abstract class Attacker : MonoBehaviour
 {
     public AttackType AttackType;
+    public Animator Animator;
+
+    public virtual bool IsSlowing => false;
+    public virtual bool IsStopping => false;
 
     public event EventHandler<AttackedArgs> Attacked;
+
+    protected bool _isDeactivated;
 
     // Start is called before the first frame update
     void Start()
@@ -23,8 +29,14 @@ public abstract class Attacker : MonoBehaviour
 
     }
 
+    public virtual void DeactivateAttacker()
+    {
+        _isDeactivated = true;
+    }
+
     public void Attack(float multiplier, bool isPerfect)
     {
+        transform.LookAt(Cameraer.Instance.GetMousePosition());
         var args = new AttackArgs()
         {
             Position = transform.position,
@@ -36,4 +48,7 @@ public abstract class Attacker : MonoBehaviour
         Attacks.Execute(AttackType, args);
         Attacked?.Invoke(this, new AttackedArgs(AttackType, args));
     }
+
+    protected void setAnimationDraw(bool value) => Animator.SetBool("draw", value);
+    protected void setAnimationAttack() => Animator.SetTrigger("attack");
 }

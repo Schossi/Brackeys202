@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    public GameState State { get; private set; } = GameState.Buy;
+    public GameState State { get; private set; }
 
     private void Awake()
     {
@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
         Followers.Instance.Finished += follower_Finished;
         RewindableTimer.Instance.Rewinded += timer_Rewinded;
         Enemies.Instance.Destroyed += enemy_Destroyed;
+
+        setState(GameState.Buy);
     }
 
     private void OnDestroy()
@@ -64,52 +66,52 @@ public class GameManager : MonoBehaviour
     private void setState(GameState state)
     {
         State = state;
+
+        if (state == GameState.Play)
+        {
+            FieldCursor.Instance.ActivateCursor();
+            AttackerUI.Instance.Show();
+        }
+        else
+        {
+            FieldCursor.Instance.DeactivateCursor();
+            AttackerUI.Instance.Hide();
+            Basecamp.Instance.CurrentRecorder?.Attacker.DeactivateAttacker();
+        }
+
+        if (state == GameState.Buy || state == GameState.End)
+        {
+            BuyingUI.Instance.Show();
+        }
+        else
+        {
+            BuyingUI.Instance.Hide();
+        }
+
         switch (state)
         {
             case GameState.Buy:
-                BuyingUI.Instance.Show();
-                FieldCursor.Instance.DeactivateCursor();
-
                 RewindableTimer.Instance.Stop();
-
                 Enemies.Instance.DestroyEnemies();
                 break;
             case GameState.Play:
-                BuyingUI.Instance.Hide();
-                FieldCursor.Instance.ActivateCursor();
-
                 RewindableTimer.Instance.Play();
                 Basecamp.Instance.CurrentRecorder.StartRecording();
                 break;
             case GameState.End:
-                BuyingUI.Instance.Show();
-                FieldCursor.Instance.DeactivateCursor();
-
                 RewindableTimer.Instance.Stop();
                 Basecamp.Instance.CurrentRecorder.StopRecording();
                 break;
             case GameState.Rewind:
-                BuyingUI.Instance.Hide();
-                FieldCursor.Instance.DeactivateCursor();
-
                 Basecamp.Instance.ConvertRecorder();
-
                 RewindableTimer.Instance.Rewind(25);
                 break;
             case GameState.Won:
-                BuyingUI.Instance.Hide();
-                FieldCursor.Instance.DeactivateCursor();
-
                 RewindableTimer.Instance.Stop();
-
                 MenuManager.Instance.ShowWon();
                 break;
             case GameState.Lost:
-                BuyingUI.Instance.Hide();
-                FieldCursor.Instance.DeactivateCursor();
-
                 RewindableTimer.Instance.Stop();
-
                 MenuManager.Instance.ShowLost();
                 break;
             default:

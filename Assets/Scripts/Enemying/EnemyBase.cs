@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class EnemyBase : MonoBehaviour,IGetHurt
 {
+    public Animator Animator;
     public float Health;
 
     private void Awake()
@@ -34,6 +35,8 @@ public class EnemyBase : MonoBehaviour,IGetHurt
         Health -= amount;
         if (Health <= 0)
             die();
+        else
+            Animator.SetTrigger("Hit");
     }
 
     protected virtual void die()

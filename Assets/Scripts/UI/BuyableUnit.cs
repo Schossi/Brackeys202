@@ -14,5 +14,6 @@ public class BuyableUnit : Buyable
     public override void Buy()
     {
         Basecamp.Instance.InstantiateUnit(Prefab, Cost);
+        GameManager.Instance.StartRound();
     }
 }

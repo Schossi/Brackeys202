@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum AttackType 
+public enum AttackType
 {
     None,
-    Arrow
+    DebugArrow,
+    Earth,
+    Fire,
+    Water,
+    Air
 }

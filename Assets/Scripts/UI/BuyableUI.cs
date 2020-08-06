@@ -22,18 +22,18 @@ public class BuyableUI : MonoBehaviour
     {
         Image.sprite = Buyable.Icon;
 
-        if (Buyable.Cost > 0)
-        {
-            CostText.text = Buyable.Cost.ToString();
-            NameText.text = Buyable.Name;
-            BigNameText.text = string.Empty;
-        }
-        else
-        {
+        //if (Buyable.Cost > 0)
+        //{
+        //    CostText.text = Buyable.Cost.ToString();
+        //    NameText.text = Buyable.Name;
+        //    BigNameText.text = string.Empty;
+        //}
+        //else
+        //{
             CostText.text = string.Empty;
             NameText.text = string.Empty;
             BigNameText.text = Buyable.Name;
-        }
+        //}
     }
 
     // Update is called once per frame

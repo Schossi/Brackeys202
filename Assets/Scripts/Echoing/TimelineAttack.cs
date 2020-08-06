@@ -11,8 +11,8 @@ public struct TimelineAttack
     public AttackType Type;
     public AttackArgs Args;
 
-    public void Execute()
+    public bool Execute()
     {
-        Attacks.Execute(Type, Args);
+        return Attacks.Execute(Type, Args);
     }
 }

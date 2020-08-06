@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "AttacksRepo")]
@@ -23,20 +24,21 @@ public class Attacks : ScriptableObject
     {
         switch (type)
         {
-            case AttackType.Arrow:
-                return Instance.ArrowAttack;
-            default:
+            case AttackType.None:
                 return null;
+            default:
+                return Instance.ArrowAttack;
         }
     }
 
-    public static void Execute(AttackType type, AttackArgs args)
+    public static bool Execute(AttackType type, AttackArgs args)
     {
         var attack = GetAttack(type);
 
         if (attack == null)
-            return;
+            return false;
 
         attack.Execute(args);
+        return true;
     }
 }

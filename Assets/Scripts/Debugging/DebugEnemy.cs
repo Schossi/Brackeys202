@@ -7,7 +7,7 @@ public class DebugEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.Instance.StartRound();
+        //GameManager.Instance.StartRound();
     }
 
     // Update is called once per frame
