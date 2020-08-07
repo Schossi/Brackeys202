@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxDuration: 0.1
-  Damage: 3
+  Damage: 2
   Collider: {fileID: 0}
   Stuns: 0
   StunDuration: 0

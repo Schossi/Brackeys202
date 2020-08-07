@@ -75,7 +75,7 @@ MonoBehaviour:
   Damage: 1
   Collider: {fileID: 0}
   Stuns: 1
-  StunDuration: 0.2
+  StunDuration: 0.5
 --- !u!82 &-7080300215843355043
 AudioSource:
   m_ObjectHideFlags: 0
@@ -199,8 +199,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7380302210471703170}
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 8}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalScale: {x: 2, y: 2, z: 1.2}
   m_Children: []
   m_Father: {fileID: 362236701955733818}
   m_RootOrder: 0

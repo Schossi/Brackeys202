@@ -315,6 +315,7 @@ GameObject:
   - component: {fileID: 572769650431988721}
   - component: {fileID: 8166950362424567778}
   - component: {fileID: 5242561740496265922}
+  - component: {fileID: 7487615439691343497}
   m_Layer: 5
   m_Name: AttackerUI
   m_TagString: Untagged
@@ -397,3 +398,15 @@ MonoBehaviour:
   NormalArea: {fileID: 5958350364430086049}
   PerfectArea: {fileID: 7075531107550741710}
   Current: {fileID: 187748658076213203}
+--- !u!225 &7487615439691343497
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8188219709056520480}
+  m_Enabled: 1
+  m_Alpha: 0.5
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

@@ -75,7 +75,7 @@ MonoBehaviour:
   Damage: 1
   Collider: {fileID: 0}
   Stuns: 0
-  StunDuration: 0
+  StunDuration: 0.1
 --- !u!82 &5389953207579937328
 AudioSource:
   m_ObjectHideFlags: 0

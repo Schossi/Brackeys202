@@ -7,6 +7,7 @@ using UnityEngine;
 public class Follower : MonoBehaviour
 {
     public const float OffsetFactor = 1.8f;
+    public const float SpeedFactor = 0.65f;
 
     public Animator Animator;
     public Transform Pivot;
@@ -56,11 +57,11 @@ public class Follower : MonoBehaviour
             if (_slowDuration > 0f)
             {
                 _slowDuration -= Time.deltaTime;
-                move(Math.Abs(RewindableTimer.Delta * Speed * 0.5f));
+                move(Math.Abs(RewindableTimer.Delta * Speed * SpeedFactor * 0.5f));
             }
             else
             {
-                move(Math.Abs(RewindableTimer.Delta * Speed));
+                move(Math.Abs(RewindableTimer.Delta * Speed * SpeedFactor));
             }
 
             Pivot.localPosition = transform.worldToLocalMatrix.MultiplyVector(Offset.GetOutaXZ() * OffsetFactor);

@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Stage1
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: e2045cbace564914e9b91505032f0b68, type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Path
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.size
+    value: 7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[0].Time
+    value: 0.1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[0].Formation
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[0].Prefab
+    value: 
+    objectReference: {fileID: 1133381510428576424, guid: cf91112303b93c247985f09a95577d88, type: 3}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[1].Time
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[1].Formation
+    value: 
+    objectReference: {fileID: 11400000, guid: b5f71c2297c741148b2ff189c294ad5d, type: 2}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[1].Prefab
+    value: 
+    objectReference: {fileID: 1133381510428576424, guid: cf91112303b93c247985f09a95577d88, type: 3}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[2].Time
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[2].Formation
+    value: 
+    objectReference: {fileID: 11400000, guid: 065714bf982dd894c8b65fe439bf3b42, type: 2}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[2].Prefab
+    value: 
+    objectReference: {fileID: 1133381510428576424, guid: 4eaa4e173d44240449109a39adc896e4, type: 3}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[3].Time
+    value: 3.5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[3].Formation
+    value: 
+    objectReference: {fileID: 11400000, guid: 0cc333bbf819f834c9275c655d0a26c4, type: 2}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[3].Prefab
+    value: 
+    objectReference: {fileID: 1133381510428576424, guid: 4eaa4e173d44240449109a39adc896e4, type: 3}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[4].Time
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[4].Formation
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[4].Prefab
+    value: 
+    objectReference: {fileID: 1133381510428576424, guid: 19887f9a62ff82a4f9cb78c26893c913, type: 3}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[5].Time
+    value: 6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[5].Formation
+    value: 
+    objectReference: {fileID: 11400000, guid: 0cc333bbf819f834c9275c655d0a26c4, type: 2}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[5].Prefab
+    value: 
+    objectReference: {fileID: 1133381510428576424, guid: 19887f9a62ff82a4f9cb78c26893c913, type: 3}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[6].Time
+    value: 8
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[6].Formation
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Items.Array.data[6].Prefab
+    value: 
+    objectReference: {fileID: 1133381510428576424, guid: f343cc2a43076a248b54db1289f66040, type: 3}
+  m_ExcludedProperties: []

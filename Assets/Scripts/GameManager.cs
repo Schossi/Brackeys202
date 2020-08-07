@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -80,7 +77,12 @@ public class GameManager : MonoBehaviour
 
     public void Retry()
     {
-        SceneManager.LoadScene("Gameplay");//  "Stage" + Stage);
+        SceneManager.LoadScene("Stage" + Stage);
+    }
+
+    public void Next()
+    {
+        SceneManager.LoadScene("Stage" + (Stage + 1).ToString());
     }
 
     public void Exit()
@@ -96,6 +98,9 @@ public class GameManager : MonoBehaviour
         {
             FieldCursor.Instance.ActivateCursor();
             AttackerUI.Instance.Show();
+
+            Score.Instance.ResetScore();
+            Score.Instance.StartScore();
         }
         else
         {
@@ -103,6 +108,8 @@ public class GameManager : MonoBehaviour
             FieldCursor.Instance.DeactivateCursor();
             AttackerUI.Instance.Hide();
             Basecamp.Instance.CurrentRecorder?.Attacker.DeactivateAttacker();
+
+            Score.Instance.StopScore();
         }
 
         if (state == GameState.Buy || state == GameState.End || state == GameState.Won || state == GameState.Lost)
@@ -139,6 +146,7 @@ public class GameManager : MonoBehaviour
                 Basecamp.Instance.ConvertRecorder();
                 RewindableTimer.Instance.Rewind(25);
                 MenuManager.Instance.ShowWon();
+                Score.Instance.ShareScore();
                 break;
             case GameState.Lost:
                 _isOver = true;

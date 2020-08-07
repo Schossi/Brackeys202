@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditorInternal;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(menuName = "AttacksRepo")]
 public class Attacks : ScriptableObject

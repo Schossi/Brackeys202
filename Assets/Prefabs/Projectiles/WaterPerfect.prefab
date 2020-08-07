@@ -158,12 +158,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rigidbody: {fileID: 3219407701543704055}
-  Range: 0.3
+  Range: 1
   Piercing: 0
   Damage: 1
   Speed: 35
   Slows: 1
-  SlowDuration: 1
+  SlowDuration: 3
   Radius: 3
   ExplosionVisualPrefab: {fileID: 362236701955733818, guid: 74eee31c5795adf4ca518ffd5baf8a6c, type: 3}
 --- !u!82 &-9052769154985728982

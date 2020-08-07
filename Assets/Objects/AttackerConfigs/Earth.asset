@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Earth
   m_EditorClassIdentifier: 
   MinTime: 0.2
-  PerfectTime: 0.5
+  PerfectTime: 0.7
   Tolerance: 0.1
   Recovery: 0.05
   IsCharger: 0

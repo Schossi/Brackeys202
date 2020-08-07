@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rigidbody: {fileID: -3663337307241048792}
-  Range: 0.3
+  Range: 0.6
   Piercing: 0
   Damage: 4
   Speed: 60

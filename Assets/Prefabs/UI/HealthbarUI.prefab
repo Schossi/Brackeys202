@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3921112120282103945}
   - component: {fileID: 4669848333469824154}
   - component: {fileID: 3937903848238468884}
+  - component: {fileID: 970271899432633086}
   m_Layer: 5
   m_Name: HealthbarUI
   m_TagString: Untagged
@@ -37,7 +38,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 35, y: 15}
+  m_SizeDelta: {x: 30, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3921112120282103945
 CanvasRenderer:
@@ -91,6 +92,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Container: {fileID: 6034134627550269307}
   Bar: {fileID: 7145000747100798169}
+  Follower: {fileID: 0}
+--- !u!225 &970271899432633086
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4628031588348838488}
+  m_Enabled: 1
+  m_Alpha: 0.3
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6944104198365010154
 GameObject:
   m_ObjectHideFlags: 0

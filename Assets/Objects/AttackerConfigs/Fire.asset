@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 409af6a6eced7344caa49b1cd82494a6, type: 3}
   m_Name: Fire
   m_EditorClassIdentifier: 
-  MinTime: 0.5
-  PerfectTime: 1
-  Tolerance: 0.1
+  MinTime: 0.3
+  PerfectTime: 0.9
+  Tolerance: 0.15
   Recovery: 0.1
   IsCharger: 0

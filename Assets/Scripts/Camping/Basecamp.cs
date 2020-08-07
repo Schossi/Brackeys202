@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using System.Management.Instrumentation;
-using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class Basecamp : MonoBehaviour
