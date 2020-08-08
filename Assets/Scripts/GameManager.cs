@@ -143,6 +143,7 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.Won:
                 _isOver = true;
+                GamePrefs.Progress = Stage;
                 Basecamp.Instance.ConvertRecorder();
                 RewindableTimer.Instance.Rewind(25);
                 MenuManager.Instance.ShowWon();

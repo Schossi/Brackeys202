@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 409af6a6eced7344caa49b1cd82494a6, type: 3}
   m_Name: Water
   m_EditorClassIdentifier: 
-  MinTime: 0.5
+  MinTime: 0.3
   PerfectTime: 1
   Tolerance: 0.1
   Recovery: 0.1

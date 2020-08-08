@@ -15,6 +15,7 @@ public class DrawAttacker : Attacker
     public override bool IsStopping => _recoveryTime > 0f;
 
     private bool _isDown;
+    private bool _isPerfectEntered;
     private float _downTime;
     private float _recoveryTime;
 
@@ -42,6 +43,12 @@ public class DrawAttacker : Attacker
         if (_isDown)
         {
             _downTime += Time.deltaTime;
+
+            if (!_isPerfectEntered && _downTime >= Config.PerfectTime - Config.Tolerance)
+            {
+                _isPerfectEntered = true;
+                AudioPlayer.Perfect();
+            }
         }
         else
         {
@@ -51,6 +58,7 @@ public class DrawAttacker : Attacker
         if (Input.GetButtonUp(InputAxis.ATTACK))
         {
             _isDown = false;
+            _isPerfectEntered = false;
 
             if (DrawTime >= Config.MinTime)
             {

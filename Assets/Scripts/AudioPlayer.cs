@@ -8,6 +8,7 @@ public class AudioPlayer : MonoBehaviour
 
     public AudioSource HitSound;
     public AudioSource SummonSound;
+    public AudioSource PrefectSound;
 
     private void Awake()
     {
@@ -16,4 +17,5 @@ public class AudioPlayer : MonoBehaviour
 
     public static void Hit() => Instance.HitSound.Play();
     public static void Summon() => Instance.SummonSound.Play();
+    public static void Perfect() => Instance.PrefectSound.Play();
 }

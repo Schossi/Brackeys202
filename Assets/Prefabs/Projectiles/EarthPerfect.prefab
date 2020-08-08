@@ -63,7 +63,7 @@ MonoBehaviour:
   Rigidbody: {fileID: 3219407701543704055}
   Range: 0.5
   Piercing: 1
-  Damage: 8
+  Damage: 6
   Speed: 60
   Slows: 0
   SlowDuration: 0

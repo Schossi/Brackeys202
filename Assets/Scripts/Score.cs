@@ -52,7 +52,7 @@ public class Score : MonoBehaviour
     }
     public void ShareScore()
     {
-        if (CurrentScore <= 0 || string.IsNullOrWhiteSpace(StaticData.Instance.Username))
+        if (CurrentScore <= 0 || string.IsNullOrWhiteSpace(GamePrefs.Username))
             return;
 
         GlobalstatsIO gs = new GlobalstatsIO();
@@ -60,7 +60,7 @@ public class Score : MonoBehaviour
         Dictionary<string, string> values = new Dictionary<string, string>();
         values.Add("Stage" + GameManager.Instance.Stage, CurrentScore.ToString());
 
-        if (gs.share("", StaticData.Instance.Username, values))
+        if (gs.share("", GamePrefs.Username, values))
         {
             // Success
         }

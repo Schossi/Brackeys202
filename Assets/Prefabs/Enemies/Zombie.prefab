@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animator: {fileID: 623544112184601234}
-  Health: 10
+  Health: 12
 --- !u!54 &7946472954389688665
 Rigidbody:
   m_ObjectHideFlags: 0
